@@ -933,11 +933,11 @@ hr {
 }
 
 .site-head {
-  display: flex !important;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 0.75rem;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
 }
 
 .site-brand {
@@ -947,7 +947,7 @@ hr {
   color: var(--navy) !important;
   text-decoration: none;
   min-width: 0;
-  flex: 0 1 auto;
+  max-width: 100%;
 }
 
 .site-brand__crest-tile {
@@ -971,6 +971,8 @@ hr {
   font-weight: 500;
   line-height: 1.1;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .site-brand__subtitle {
@@ -982,6 +984,7 @@ hr {
   width: auto;
   min-width: 0;
   flex: 0 0 auto;
+  justify-self: end;
 }
 
 #nav {
@@ -1040,12 +1043,12 @@ hr {
 
 @media (max-width: 759px) {
   .site-header .site-wrap {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .site-head {
-    flex-wrap: wrap;
+    grid-template-columns: 1fr;
   }
 
   .site-brand {
