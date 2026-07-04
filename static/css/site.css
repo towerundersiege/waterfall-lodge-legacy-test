@@ -933,22 +933,40 @@ hr {
 }
 
 .site-head {
+  display: flex !important;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   align-items: center;
   gap: 0.75rem;
 }
 
 .site-brand {
-  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--navy) !important;
   text-decoration: none;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.site-brand__crest-tile {
+  display: grid;
+  place-items: center;
+  padding: 0.1rem;
+  border: 1px solid rgba(20, 43, 77, 0.16);
+  background: var(--surface);
+  flex: 0 0 auto;
 }
 
 .site-brand__crest {
-  width: 42px;
+  display: block;
+  width: 40px;
   height: auto;
 }
 
 .site-brand__title {
-  color: var(--text);
+  color: var(--navy) !important;
   font-size: 1.15rem;
   font-weight: 500;
   line-height: 1.1;
@@ -962,15 +980,23 @@ hr {
 .site-nav-wrap {
   margin-left: auto;
   width: auto;
+  min-width: 0;
+  flex: 0 0 auto;
 }
 
 #nav {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
   gap: 0.9rem;
+  width: auto;
+  margin-left: auto;
 }
 
 #nav a {
   padding: 0;
-  color: var(--text);
+  color: #222222 !important;
   text-decoration: none;
   background: transparent !important;
   border: 0 !important;
@@ -985,7 +1011,7 @@ hr {
 }
 
 #nav .current_page_item > a {
-  color: var(--navy);
+  color: var(--navy) !important;
   text-decoration: underline;
   text-underline-offset: 0.18em;
   background: transparent !important;
@@ -1018,6 +1044,10 @@ hr {
     flex-wrap: wrap;
   }
 
+  .site-head {
+    flex-wrap: wrap;
+  }
+
   .site-brand {
     min-width: 0;
   }
@@ -1025,6 +1055,10 @@ hr {
   .site-brand__title {
     white-space: normal;
     font-size: 1rem;
+  }
+
+  .site-brand__crest {
+    width: 38px;
   }
 
   .site-nav-wrap {
@@ -1046,5 +1080,7 @@ hr {
   #nav {
     display: grid;
     gap: 0.35rem;
+    justify-content: start;
+    width: 100%;
   }
 }
