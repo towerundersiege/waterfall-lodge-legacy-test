@@ -16,11 +16,12 @@
     <div id="wrapper">
       {{ partial "header.html" . }}
       <div id="wrap">
-        <div id="content">
+        <main id="content" class="site-content">
           {{ block "main" . }}{{ end }}
-        </div>
+        </main>
         <div class="clear"></div>
       </div>
+      {{ partial "footer.html" . }}
     </div>
   </body>
 </html>

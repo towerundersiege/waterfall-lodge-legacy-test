@@ -1,0 +1,32 @@
+{{ $turnstileSiteKey := getenv "HUGO_TURNSTILE_SITE_KEY" }}
+<form class="join-form" method="post" action="/api/join">
+  <div class="form-grid">
+    <label>
+      <span>Name</span>
+      <input type="text" name="name" autocomplete="name" required>
+    </label>
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" autocomplete="email" required>
+    </label>
+    <label>
+      <span>Phone</span>
+      <input type="tel" name="phone" autocomplete="tel" required>
+    </label>
+  </div>
+  <label>
+    <span>Reason for interest / questions</span>
+    <textarea name="message" rows="6" required></textarea>
+  </label>
+  <label class="form-consent">
+    <input type="checkbox" name="consent" value="yes" required>
+    <span>Your details will only be used to respond to your enquiry.</span>
+  </label>
+  {{ if $turnstileSiteKey }}
+    <div class="cf-turnstile" data-sitekey="{{ $turnstileSiteKey }}"></div>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  {{ else }}
+    <p class="form-note">Turnstile is not configured yet. Set `HUGO_TURNSTILE_SITE_KEY` in the build environment.</p>
+  {{ end }}
+  <button class="button button--primary" type="submit">Send enquiry</button>
+</form>
