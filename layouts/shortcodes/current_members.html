@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    {{ range hugo.Data.lodge.current_members }}
+    {{ range .Site.Data.lodge.current_members }}
       <tr>
         <td>{{ with .joined }}{{ . }}{{ else }}-{{ end }}</td>
         <td>

@@ -1,7 +1,7 @@
 <table class="events-table">
   <tbody>
     {{ $cutoff := (now.AddDate 0 0 -7).Format "2006-01-02" }}
-    {{ range sort hugo.Data.lodge.events "datetime" }}
+    {{ range sort .Site.Data.lodge.events "datetime" }}
       {{ $eventDate := substr .datetime 0 10 }}
       {{ if ge $eventDate $cutoff }}
         <tr class="event-type-{{ .type }}">
