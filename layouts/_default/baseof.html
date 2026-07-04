@@ -15,13 +15,11 @@
   <body class="{{ if .IsHome }}home blog{{ else }}page page-template-default{{ end }} custom-background wp-theme-zeenews">
     <div id="wrapper">
       {{ partial "header.html" . }}
-      <div id="wrap">
-        <main id="content" class="site-content">
+      <main class="site-main site-wrap">
+        <div id="content" class="site-content">
           {{ block "main" . }}{{ end }}
-        </main>
-        <div class="clear"></div>
-      </div>
-      {{ partial "footer.html" . }}
+        </div>
+      </main>
     </div>
   </body>
 </html>
