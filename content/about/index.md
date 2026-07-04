@@ -11,46 +11,36 @@ draft = false
 <p>We meet four times a year in March, May, October and December at Chertsey Masonic Hall. The March, May and October meetings are usually on the second Wednesday evening, with the December meeting on the second Tuesday. Lodge of Instruction and committee meetings are held separately through the year.</p>
 </div>
 
-<section class="section-block">
+<hr>
+
+<section>
   <h2>History</h2>
-  <div class="prose">
-    <p>The lodge has always been rooted in Chertsey, with a strong local identity and a practical sense of purpose. Its life is shaped by friendship, charity, personal development and the ordinary business of keeping a lodge healthy and welcoming.</p>
-    <p>Members range across ages, professions and backgrounds. That variety matters. It keeps the lodge grounded and helps preserve a balance between tradition, good company and useful work in the community.</p>
-    <p>Freemasonry is often misunderstood from the outside. In practice, the lodge is a place for people who value calm conversation, mutual support, shared ceremony and the chance to contribute to something larger than themselves.</p>
-  </div>
+  <p>The lodge has always been rooted in Chertsey, with a strong local identity and a practical sense of purpose. Its life is shaped by friendship, charity, personal development and the ordinary business of keeping a lodge healthy and welcoming.</p>
+  <p>Members range across ages, professions and backgrounds. That variety matters. It keeps the lodge grounded and helps preserve a balance between tradition, good company and useful work in the community.</p>
+  <p>Freemasonry is often misunderstood from the outside. In practice, the lodge is a place for people who value calm conversation, mutual support, shared ceremony and the chance to contribute to something larger than themselves.</p>
 </section>
 
-<section class="section-block">
+<hr>
+
+<section>
   <h2>Founding and meetings</h2>
-  <div class="fact-grid">
-    <div class="fact-card">
-      <span>Founded</span>
-      <strong>29 October 1920</strong>
-    </div>
-    <div class="fact-card">
-      <span>Number</span>
-      <strong>No. 4139</strong>
-    </div>
-    <div class="fact-card">
-      <span>Province</span>
-      <strong>Surrey</strong>
-    </div>
-    <div class="fact-card">
-      <span>Meeting place</span>
-      <strong>Chertsey Masonic Hall</strong>
-    </div>
-  </div>
+  <p>Founded: 29 October 1920</p>
+  <p>Number: No. 4139</p>
+  <p>Province: Surrey</p>
+  <p>Meeting place: Chertsey Masonic Hall</p>
 </section>
 
-<section class="section-block">
+<hr>
+
+<section>
   <h2>Meeting schedule</h2>
-  <div class="prose">
-    <p>The current schedule, including lodge meetings and lodges of instruction, is listed below.</p>
-  </div>
+  <p>The current schedule, including lodge meetings and lodges of instruction, is listed below.</p>
   {{< events_table >}}
 </section>
 
-<section class="section-block">
+<hr>
+
+<section>
   <h2>Founder members</h2>
   <div class="founder-list">
     <span>William Wadham Floyed</span>
@@ -76,7 +66,9 @@ draft = false
   </div>
 </section>
 
-<section class="section-block">
+<hr>
+
+<section>
   <h2>Current members</h2>
   {{< current_members >}}
 </section>

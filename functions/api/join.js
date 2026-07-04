@@ -61,7 +61,7 @@ async function verifyTurnstile(secret, token, ipAddress) {
 }
 
 async function sendEmail(env, enquiry) {
-  const toEmail = env.JOIN_TO_EMAIL;
+  const toEmail = env.JOIN_TO_EMAIL || "membership@waterfall-lodge.org";
   const fromEmail = env.JOIN_FROM_EMAIL;
   if (!toEmail || !fromEmail) {
     throw new Error("Missing JOIN_TO_EMAIL or JOIN_FROM_EMAIL.");

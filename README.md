@@ -54,7 +54,7 @@ Set these environment variables in Cloudflare Pages:
 
 - `HUGO_TURNSTILE_SITE_KEY`
 - `TURNSTILE_SECRET_KEY`
-- `JOIN_TO_EMAIL`
+- `JOIN_TO_EMAIL` defaults to `membership@waterfall-lodge.org`
 - `JOIN_FROM_EMAIL`
 - `JOIN_FROM_NAME` is optional
 
