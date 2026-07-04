@@ -1,0 +1,24 @@
+baseURL: "https://test.waterfall-lodge.org.uk/"
+languageCode: "en-gb"
+title: "Waterfall Lodge No 4139 Test"
+
+disableKinds:
+  - taxonomy
+  - term
+  - RSS
+  - sitemap
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+params:
+  description: "Test static Hugo rebuild of the Waterfall Lodge WordPress site."
+  colors:
+    background: "#FAFAF8"
+    foreground: "#222222"
+    muted: "#555555"
+    accent_1: "#142B4D"
+    accent_2: "#B08D57"
+    surface: "#FFFFFF"

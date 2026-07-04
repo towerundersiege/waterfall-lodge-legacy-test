@@ -11,16 +11,25 @@
     <link rel="stylesheet" href="/wp-includes/css/dist/block-library/style.min.css">
     <link rel="stylesheet" href="/wp-content/themes/zeenews/style.css">
     <link rel="stylesheet" href="/css/site.css">
+    <style>
+      :root {
+        --bg: {{ site.Params.colors.background }};
+        --text: {{ site.Params.colors.foreground }};
+        --muted: {{ site.Params.colors.muted }};
+        --navy: {{ site.Params.colors.accent_1 }};
+        --gold: {{ site.Params.colors.accent_2 }};
+        --surface: {{ site.Params.colors.surface }};
+      }
+    </style>
   </head>
   <body class="{{ if .IsHome }}home blog{{ else }}page page-template-default{{ end }} custom-background wp-theme-zeenews">
     <div id="wrapper">
       {{ partial "header.html" . }}
-      <div id="wrap">
+      <main class="site-wrap site-main">
         <div id="content">
           {{ block "main" . }}{{ end }}
         </div>
-        <div class="clear"></div>
-      </div>
+      </main>
     </div>
   </body>
 </html>
