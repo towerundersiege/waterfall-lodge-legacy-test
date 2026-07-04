@@ -16,7 +16,7 @@ markup:
 params:
   description: "Test static Hugo rebuild of the Waterfall Lodge WordPress site."
   colors:
-    background: "#FAFAF8"
+    background: "#FFFFFF"
     foreground: "#222222"
     muted: "#555555"
     accent_1: "#142B4D"

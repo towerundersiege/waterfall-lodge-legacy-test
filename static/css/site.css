@@ -948,6 +948,7 @@ hr {
   text-decoration: none;
   min-width: 0;
   max-width: 100%;
+  justify-self: start;
 }
 
 .site-brand__crest-tile {
@@ -966,13 +967,12 @@ hr {
 }
 
 .site-brand__title {
+  display: block;
   color: var(--navy) !important;
   font-size: 1.15rem;
   font-weight: 500;
   line-height: 1.1;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .site-brand__subtitle {
@@ -1045,6 +1045,8 @@ hr {
   .site-header .site-wrap {
     display: grid;
     grid-template-columns: 1fr;
+    align-items: center;
+    row-gap: 0.5rem;
   }
 
   .site-head {
