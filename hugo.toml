@@ -1,6 +1,6 @@
 baseURL = "https://test.waterfall-lodge.org.uk/"
 languageCode = "en-gb"
-title = "Waterfall Lodge No. 4139"
+title = "Waterfall Lodge No 4139 Test"
 
 disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 
@@ -10,4 +10,4 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
       unsafe = true
 
 [params]
-  description = "Waterfall Lodge No. 4139, Freemasons in Chertsey, Surrey."
+  description = "Test static Hugo rebuild of the Waterfall Lodge WordPress site."

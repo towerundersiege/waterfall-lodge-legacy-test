@@ -1,24 +1,28 @@
 {{ $current := .RelPermalink }}
 <div id="header">
   <div id="head" class="site-head">
-    <a class="site-brand" href="/" aria-label="Waterfall Lodge home">
-      <img class="site-brand__crest" src="/newcrest.png" alt="Waterfall Lodge crest">
-      <span class="site-brand__text">
-        <span class="site-brand__title">Waterfall Lodge No. 4139</span>
-        <span class="site-brand__subtitle">Freemasons in Chertsey, Surrey</span>
-      </span>
-    </a>
+    <div class="site-brand-wrap">
+      <a class="site-brand" href="/" aria-label="Waterfall Lodge home">
+        <span class="site-brand__crest-tile">
+          <img class="site-brand__crest" src="/images/header-mark.svg" alt="Waterfall Lodge shield mark">
+        </span>
+        <span class="site-brand__text">
+          <span class="site-brand__title">Waterfall Lodge No. 4139</span>
+          <span class="site-brand__subtitle">Freemasons in Chertsey, Surrey</span>
+        </span>
+      </a>
+    </div>
+
     <div class="site-nav-wrap">
-      <details id="nav_toggle">
-        <summary><span class="nav-toggle__label">Menu</span><span class="nav-toggle__icon" aria-hidden="true"></span></summary>
+      <details id="nav_toggle" open>
+        <summary><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__label">Menu</span></summary>
         <nav id="navi" aria-label="Primary navigation">
           <ul id="nav" class="menu">
             <li class="page_item{{ if .IsHome }} current_page_item{{ end }}"><a href="/">Home</a></li>
-            <li class="page_item{{ if hasPrefix $current "/about" }} current_page_item{{ end }}"><a href="/about/">About</a></li>
             <li class="page_item{{ if or (hasPrefix $current "/freemasonry") (hasPrefix $current "/us") }} current_page_item{{ end }}"><a href="/freemasonry">Freemasonry</a></li>
             <li class="page_item{{ if hasPrefix $current "/charity" }} current_page_item{{ end }}"><a href="/charity">Charity</a></li>
             <li class="page_item{{ if or (hasPrefix $current "/events") (hasPrefix $current "/social") }} current_page_item{{ end }}"><a href="/events">Events</a></li>
-            <li class="page_item nav-cta{{ if or (hasPrefix $current "/join") (hasPrefix $current "/joining") }} current_page_item{{ end }}"><a href="/join/">Join</a></li>
+            <li class="page_item nav-cta{{ if or (hasPrefix $current "/join") (hasPrefix $current "/joining") }} current_page_item{{ end }}"><a href="/join">Join</a></li>
           </ul>
         </nav>
       </details>

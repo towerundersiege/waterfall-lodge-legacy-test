@@ -1,7 +1,7 @@
 # Waterfall Lodge Legacy Test
 
 A static Hugo rebuild of the old Waterfall Lodge WordPress site, isolated for
-test deployments and a separate Cloudflare Pages project.
+test deployments.
 
 This repository exists to preserve the legacy WordPress-era website as a
 hostable static site. It contains no database, no WordPress runtime, no Docker
@@ -46,20 +46,6 @@ Use the Hugo framework preset with:
 
 `wrangler.toml` also declares the Pages build output directory for local
 Cloudflare tooling.
-
-## Join Form
-
-The join enquiry form posts to a Cloudflare Pages Function at `/api/join`.
-Set these environment variables in Cloudflare Pages:
-
-- `HUGO_TURNSTILE_SITE_KEY`
-- `TURNSTILE_SECRET_KEY`
-- `JOIN_TO_EMAIL`
-- `JOIN_FROM_EMAIL`
-- `JOIN_FROM_NAME` is optional
-
-The function verifies Turnstile server-side and sends the enquiry via the
-configured email relay.
 
 ## Structure
 
