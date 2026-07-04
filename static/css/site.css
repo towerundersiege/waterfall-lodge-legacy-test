@@ -4,8 +4,8 @@
 :root {
   --bg: #fafaf8;
   --surface: #fffefb;
-  --text: #222222;
-  --muted: #555555;
+  --text: #232323;
+  --muted: #5c6470;
   --navy: #142b4d;
   --gold: #b08d57;
   --border: #dcd6c8;
@@ -19,19 +19,15 @@
 
 html {
   scroll-behavior: smooth;
-  width: 100%;
-  overflow-x: hidden;
 }
 
 body {
   margin: 0;
-  width: 100%;
   background: var(--bg);
   color: var(--text);
   font-family: "Inter", system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.7;
-  overflow-x: hidden;
 }
 
 a {
@@ -46,12 +42,6 @@ a:focus-visible {
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-}
-
-svg,
-video {
   max-width: 100%;
   height: auto;
 }
@@ -95,25 +85,21 @@ ol {
   padding-left: 1.2rem;
 }
 
-table {
-  width: 100%;
-  max-width: 100%;
-  border-collapse: collapse;
+#header {
+  border-bottom: 1px solid var(--navy);
+}
+
+#head,
+#footer_wrap {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
 }
 
 #header {
-  background: var(--bg);
-  color: var(--text);
-  border-bottom: 1px solid var(--navy);
   padding: 0.75rem 0;
 }
 
-.site-wrap {
-  width: min(100% - 2rem, 680px);
-  margin-inline: auto;
-}
-
-.site-header .site-wrap {
+.site-head {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -124,7 +110,7 @@ table {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  color: var(--navy);
+  color: inherit;
   text-decoration: none;
 }
 
@@ -217,12 +203,10 @@ table {
   text-underline-offset: 0.18em;
 }
 
-.site-main {
-  padding: 2rem 0 3rem;
-}
-
 #content {
-  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
 }
 
 .home-page,
@@ -345,7 +329,7 @@ table {
 }
 
 .legacy-details details {
-  border-top: 1px solid var(--navy);
+  border-top: 1px solid var(--border);
   padding-top: 0.25rem;
 }
 
@@ -361,8 +345,21 @@ table {
   gap: 0.35rem 1rem;
 }
 
+#foot_wrap {
+  border-top: 1px solid var(--navy);
+}
+
+#footer_wrap {
+  padding: 1.1rem 0 1.5rem;
+}
+
+#footer {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 @media (min-width: 760px) {
-  .site-header .site-wrap {
+  .site-head {
     flex-wrap: nowrap;
   }
 
@@ -383,36 +380,5 @@ table {
 
   #nav a {
     padding: 0;
-  }
-}
-
-@media (max-width: 759px) {
-  .current-members-table,
-  .current-members-table tbody,
-  .current-members-table tr,
-  .current-members-table td,
-  .events-table,
-  .events-table tbody,
-  .events-table tr,
-  .events-table td {
-    display: block;
-    width: 100%;
-  }
-
-  .current-members-table tr,
-  .events-table tr {
-    border-top: 1px solid var(--border);
-    padding: 0.25rem 0;
-  }
-
-  .current-members-table th,
-  .events-table th {
-    display: none;
-  }
-
-  .current-members-table td,
-  .events-table td {
-    padding-left: 0;
-    padding-right: 0;
   }
 }
