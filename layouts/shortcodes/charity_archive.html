@@ -1,0 +1,26 @@
+<div class="legacy-details charity-archive">
+  {{ with hugo.Data.lodge.charity.archive }}
+    <details open>
+      <summary>{{ .title }}</summary>
+      <div class="details-body">
+        {{ with .intro }}<p>{{ . }}</p>{{ end }}
+        {{ range .items }}
+          <details>
+            <summary>{{ .year }}</summary>
+            <div class="details-body">
+              <div class="charity-archive-grid">
+                {{ range .entries }}
+                  <article class="charity-archive-card">
+                    <h4>{{ .name }}</h4>
+                    <p class="charity-archive-card__amount">{{ .amount }}</p>
+                    <p>{{ .note }}</p>
+                  </article>
+                {{ end }}
+              </div>
+            </div>
+          </details>
+        {{ end }}
+      </div>
+    </details>
+  {{ end }}
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+    <link rel="icon" href="/wp-content/uploads/2014/03/cropped-Masonic-symbol-web-32x32.jpg" sizes="32x32">
+    <link rel="icon" href="/wp-content/uploads/2014/03/cropped-Masonic-symbol-web-192x192.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" href="/wp-content/uploads/2014/03/cropped-Masonic-symbol-web-180x180.jpg">
+    <link rel="stylesheet" href="/wp-includes/css/dist/block-library/style.min.css">
+    <link rel="stylesheet" href="/wp-content/themes/zeenews/style.css">
+    <link rel="stylesheet" href="/css/site.css">
+  </head>
+  <body class="{{ if .IsHome }}home blog{{ else }}page page-template-default{{ end }} custom-background wp-theme-zeenews">
+    <div id="wrapper">
+      {{ partial "header.html" . }}
+      <div id="wrap">
+        <div id="content">
+          {{ block "main" . }}{{ end }}
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </body>
+</html>

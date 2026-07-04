@@ -1,0 +1,283 @@
+current_members:
+  - name: Anthony (Tony) C. Rich
+    joined: "1986"
+    worshipful_brother: true
+    honours: [PPGReg, PPGStdB, Middx]
+    ra: true
+    roles: []
+  - name: William (Bill) T. Watson
+    joined: "1987"
+    worshipful_brother: true
+    honours:
+      - PPDepGReg
+    ra: true
+    roles:
+      - Chaplain
+  - name: David J. Parkin
+    joined: "1993"
+    worshipful_brother: true
+    honours:
+      - PPSGD
+    ra: false
+    roles:
+      - Secretary
+      - Data Controller
+  - name: Dr Stephen J. Pearce
+    joined: "2000"
+    worshipful_brother: true
+    honours:
+      - PPDepGReg
+    ra: false
+    roles:
+      - Immediate Past Master
+      - Mentor
+  - name: Martin A. Barnes
+    joined: "2005"
+    worshipful_brother: true
+    honours:
+      - PPGStB
+    ra: false
+    roles:
+      - Treasurer
+  - name: David E. Hendy
+    joined: "2007"
+    worshipful_brother: true
+    honours:
+      - PPDepGReg
+    ra: true
+    roles:
+      - Almoner
+  - name: Andrew (Andy) D. Hendy
+    joined: "2007"
+    worshipful_brother: true
+    honours:
+      - PPGSwdB
+    ra: true
+    roles:
+      - Director of Ceremonies
+      - Assistant Secretary
+      - Royal Arch Representative
+  - name: Colin F. Barnard
+    joined: "2014"
+    worshipful_brother: false
+    honours:
+      - PPGO
+      - LGR
+    ra: true
+    roles:
+      - Organist
+  - name: Robert (Robbie) Douglas
+    joined: "2016"
+    worshipful_brother: false
+    honours: []
+    ra: false
+    roles: []
+  - name: Terence (Terry) J. Allford
+    joined: "2018"
+    worshipful_brother: true
+    honours: []
+    ra: true
+    roles:
+      - Worshipful Master
+      - Halls Representative
+  - name: Harvinder (Harvey) S. Dhingra
+    joined: "2019"
+    worshipful_brother: false
+    honours: []
+    ra: true
+    roles:
+      - Junior Warden
+  - name: Daniele (Dan) Basilico
+    joined: "2019"
+    worshipful_brother: false
+    honours: []
+    ra: true
+    roles:
+      - Senior Warden
+  - name: Michael Eguzoraku
+    joined: "2019"
+    worshipful_brother: false
+    honours: []
+    ra: false
+    roles: []
+  - name: Ryan P. C. Adams
+    joined: "2023"
+    worshipful_brother: false
+    honours: []
+    ra: false
+    roles:
+      - Senior Deacon
+  - name: Duncan I. L. Wilkinson
+    joined: "2023"
+    worshipful_brother: false
+    honours: []
+    ra: false
+    roles:
+      - Steward
+  - name: Liam A. Boggett
+    joined: "2023"
+    worshipful_brother: false
+    honours: []
+    ra: false
+    roles:
+      - Steward
+  - name: Paul C. Cooper
+    joined: "2023"
+    worshipful_brother: false
+    honours: []
+    ra: false
+    roles:
+      - Membership Officer
+      - Junior Deacon
+  - name: Bruno E. Zerola
+    joined: "2024"
+    worshipful_brother: false
+    honours: []
+    ra: false
+    roles:
+      - Steward
+  - name: Garry L. Burns
+    joined: "2024"
+    worshipful_brother: false
+    honours: []
+    ra: false
+    roles:
+      - Charity Steward
+      - Inner Guard
+  - name: Gary J. Rixon
+    joined: "2024"
+    worshipful_brother: true
+    honours:
+      - PProvSGD
+    ra: true
+    roles:
+      - Assistant Director of Ceremonies
+  - name: Marcio J. Araujo
+    joined: "2025"
+    worshipful_brother: false
+    honours: []
+    ra: false
+    roles:
+      - Steward
+
+events:
+  - type: meeting
+    name: Lodge Meeting
+    datetime: "2026-05-13 16:30"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Masonic duties of the Lodge.
+  - type: meeting
+    name: Autumn Committee Meeting
+    datetime: "2026-08-28 19:00"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Open to Officers and Past Masters of the Lodge only.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2026-09-04 19:30"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Second half of 2026 instruction evening.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2026-09-11 19:30"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Second half of 2026 instruction evening.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2026-10-02 19:30"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Second half of 2026 instruction evening.
+  - type: loi
+    name: Officer's Night
+    datetime: "2026-10-09 19:30"
+    location: Chertsey Masonic Temple, Chertsey, Surrey
+    description: Officer's Night at the Chertsey Masonic Temple.
+  - type: meeting
+    name: "Lodge Meeting: Double 1st Degree"
+    datetime: "2026-10-14 18:30"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Double 1st Degree meeting.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2026-10-30 19:30"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Second half of 2026 instruction evening.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2026-11-06 19:30"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Second half of 2026 instruction evening.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2026-11-20 19:30"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Second half of 2026 instruction evening.
+  - type: loi
+    name: Officer's Night
+    datetime: "2026-12-04 19:30"
+    location: Chertsey Masonic Temple, Chertsey, Surrey
+    description: Officer's Night at the Chertsey Masonic Temple.
+  - type: meeting
+    name: "Lodge Meeting: 3rd Degree"
+    datetime: "2026-12-08 18:30"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: 3rd Degree Lodge Meeting.
+
+charity:
+  current_year: 2026
+  featured:
+    - title: Teddies for Loving Care Surrey
+      link: https://tlcappealsurrey.org.uk/
+      logo: https://tlcappealsurrey.org.uk/wp-content/uploads/2021/12/Teddies-For-Loving-Care-Surrey-TLC.png
+      summary: Teddy bears are given to children in A&E to calm, comfort and distract them during treatment.
+    - title: Surrey 2030 Festival
+      link: https://surreyfestival.org.uk/
+      logo: https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_300,h_68/https://surreyfestival.org.uk/wp-content/uploads/2024/09/Surrey-Festival-2.png
+      summary: Surrey-wide giving in support of the Masonic Charitable Foundation and local Surrey charities.
+    - title: Masonic Charitable Foundation
+      link: https://mcf.org.uk/
+      logo: https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_600/https://surreyfestival.org.uk/wp-content/uploads/2024/09/MCF_Logo_RGB_AW.png
+      summary: The MCF supports Freemasons, their families and wider community charities through grants and relief.
+  supported:
+    - title: Teddies for Loving Care Surrey
+      link: https://tlcappealsurrey.org.uk/
+      summary: Teddy bears for children arriving at A&E, where the bears help calm, comfort and distract them during treatment.
+      support: Local fundraising, lodge collections and patron support.
+      impact: Surrey TLC supports 10 Surrey hospitals and distributes about 1,100 bears each month.
+    - title: Surrey 2030 Festival
+      link: https://surreyfestival.org.uk/
+      summary: Surrey-wide charitable giving in support of the Masonic Charitable Foundation, with local impact across the county.
+      support: Lodge giving and wider Surrey participation.
+      impact: Surrey charities supported through MCF grants and match-funding include LinkAble, the Orpheus Centre Trust, Momentum, Crossroads Care Surrey, Rainbow Trust, Wildlife Aid Foundation and Your Sanctuary.
+    - title: Air Ambulance Charity Kent Surrey Sussex
+      link: https://aakss.org.uk/
+      summary: Emergency medical response across Kent, Surrey and Sussex.
+      support: Lodge donations and community fundraising.
+      impact: The charity responds 24/7, 365 days a year and helps bring specialist treatment to the scene when seconds matter.
+    - title: Woking & Sam Beare Hospice
+      link: https://wsbh.org.uk/
+      summary: Specialist palliative and end-of-life care for Surrey families.
+      support: Lodge donations and local charity support.
+      impact: Care is delivered without charge across the community, in patients' homes, in the hospice and through wellbeing services.
+    - title: Cancer Research UK
+      link: https://www.cancerresearchuk.org/
+      summary: One of the UK's leading cancer charities, funding research into all cancer types.
+      support: Annual lodge giving and wider fundraising.
+      impact: The charity's work has helped drive major advances in prevention, diagnosis and treatment.
+  archive:
+    title: Recent lodge giving
+    intro: These are examples of the lodge's recorded charitable gifts from the legacy page archive.
+    items:
+      - year: "Legacy record"
+        entries:
+          - name: Cancer Research
+            amount: "£150.00"
+            note: Annual lodge donation.
+          - name: Surrey Air Ambulance
+            amount: "£150.00"
+            note: Local emergency care support.
+          - name: Woking Sam Beare Hospice
+            amount: "£150.00"
+            note: Local hospice care support.
+          - name: Lodge Widows Christmas Grant
+            amount: "£50.00 each"
+            note: Annual Christmas grant to lodge widows.

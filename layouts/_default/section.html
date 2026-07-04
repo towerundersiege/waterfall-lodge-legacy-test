@@ -1,0 +1,16 @@
+{{ define "main" }}
+  {{ if .Content }}
+    {{ .Content }}
+  {{ else }}
+    <div class="post">
+      <h2 class="page-title">{{ .Title }}</h2>
+      <div class="entry">
+        <ul>
+          {{ range .RegularPages }}
+            <li><a href="{{ strings.TrimSuffix "/" .RelPermalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  {{ end }}
+{{ end }}

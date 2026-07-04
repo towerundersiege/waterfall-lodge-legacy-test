@@ -1,0 +1,36 @@
+<table class="current-members-table">
+  <thead>
+    <tr>
+      <th>Joined</th>
+      <th>Name</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range hugo.Data.lodge.current_members }}
+      <tr>
+        <td>{{ with .joined }}{{ . }}{{ else }}-{{ end }}</td>
+        <td>
+          {{ if .worshipful_brother }}W. Bro.{{ else }}Bro.{{ end }} {{ .name }}
+          {{ with .honours }}
+            {{ if gt (len .) 0 }}
+              {{ delimit . ", " }}
+            {{ end }}
+          {{ end }}
+          {{ if .ra }} <span class="member-ra">(RA)</span>{{ end }}
+        </td>
+        <td>
+          {{ with .roles }}
+            {{ if gt (len .) 0 }}
+              {{ delimit . ", " }}
+            {{ else }}
+              &ndash;
+            {{ end }}
+          {{ else }}
+            &ndash;
+          {{ end }}
+        </td>
+      </tr>
+    {{ end }}
+  </tbody>
+</table>

@@ -1,0 +1,16 @@
+<table class="events-table">
+  <tbody>
+    {{ $cutoff := (now.AddDate 0 0 -7).Format "2006-01-02" }}
+    {{ range sort hugo.Data.lodge.events "datetime" }}
+      {{ $eventDate := substr .datetime 0 10 }}
+      {{ if ge $eventDate $cutoff }}
+        <tr class="event-type-{{ .type }}">
+          <td><span class="event-type">{{ .type }}</span></td>
+          <td>{{ .name }}</td>
+          <td>{{ with .datetime }}{{ . }}{{ end }}</td>
+          <td>{{ with .location }}{{ . }}{{ end }}</td>
+        </tr>
+      {{ end }}
+    {{ end }}
+  </tbody>
+</table>

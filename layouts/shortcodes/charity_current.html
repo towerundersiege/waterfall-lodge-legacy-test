@@ -1,0 +1,12 @@
+<div class="charity-grid">
+  {{ range hugo.Data.lodge.charity.featured }}
+    <article class="charity-card">
+      <a class="charity-card__link" href="{{ .link }}" target="_blank" rel="noopener">
+        <img class="charity-card__logo" src="{{ .logo }}" alt="{{ .title }} logo">
+        <h3>{{ .title }}</h3>
+        <p class="charity-summary">{{ .summary }}</p>
+        <span class="charity-card__cta">Visit website</span>
+      </a>
+    </article>
+  {{ end }}
+</div>
