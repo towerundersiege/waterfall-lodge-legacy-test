@@ -64,11 +64,11 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 
 h2 {
-  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
 h3 {
@@ -86,7 +86,7 @@ ol {
 }
 
 #header {
-  border-bottom: 1px solid var(--navy);
+  border-bottom: 1px solid var(--border);
 }
 
 #head,
@@ -96,7 +96,7 @@ ol {
 }
 
 #header {
-  padding: 0.75rem 0;
+  padding: 0.9rem 0;
 }
 
 .site-head {
@@ -115,7 +115,7 @@ ol {
 }
 
 .site-brand__crest {
-  width: 38px;
+  width: 42px;
   flex: 0 0 auto;
 }
 
@@ -127,7 +127,7 @@ ol {
 
 .site-brand__title {
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 600;
   line-height: 1;
 }
@@ -190,21 +190,14 @@ ol {
   display: block;
   padding: 0.35rem 0;
   text-decoration: none;
-  color: var(--navy);
-}
-
-#nav a:hover,
-#nav a:focus-visible {
-  color: var(--gold);
 }
 
 #nav .current_page_item > a {
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
+  font-weight: 600;
 }
 
 #content {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 2rem 1.25rem 3rem;
 }
@@ -221,12 +214,12 @@ ol {
 }
 
 .home-crest img {
-  width: 80px;
+  width: 92px;
 }
 
 .home-title {
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 600;
   margin-bottom: 0.2rem;
 }
@@ -346,7 +339,7 @@ ol {
 }
 
 #foot_wrap {
-  border-top: 1px solid var(--navy);
+  border-top: 1px solid var(--border);
 }
 
 #footer_wrap {
