@@ -1119,7 +1119,7 @@ hr {
   }
 
   .site-header__top {
-    padding-bottom: 0.22rem;
+    padding-bottom: 0;
     border-bottom: 1px solid var(--navy);
     gap: 0.5rem;
   }
@@ -1153,8 +1153,8 @@ hr {
     display: none;
     width: 100%;
     margin-top: 0;
-    padding-top: 0.25rem;
-    padding-bottom: 0.47rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
     border-bottom: 0;
   }
 
