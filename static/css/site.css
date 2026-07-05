@@ -1045,7 +1045,6 @@ hr {
   color: var(--navy) !important;
   text-decoration: underline;
   text-underline-offset: 0.18em;
-  font-weight: 500;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
@@ -1060,6 +1059,7 @@ hr {
 
 .site-header__top {
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
@@ -1069,6 +1069,7 @@ hr {
   display: none;
   align-items: center;
   gap: 0.35rem;
+  margin-left: auto;
   padding: 0;
   border: 0;
   background: transparent;
@@ -1122,6 +1123,7 @@ hr {
     display: inline-flex;
     flex: 0 0 auto;
     justify-content: flex-end;
+    margin-left: auto;
     color: var(--navy);
     font-size: 0.95rem;
     font-weight: 500;
@@ -1169,7 +1171,6 @@ hr {
     color: var(--navy) !important;
     text-decoration: underline;
     text-underline-offset: 0.18em;
-    font-weight: 500;
   }
 
   #nav {
