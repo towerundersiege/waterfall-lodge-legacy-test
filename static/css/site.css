@@ -1153,13 +1153,14 @@ hr {
     display: none;
     width: 100%;
     margin-top: 0;
-    padding-top: 0.45rem;
+    padding-top: 0.35rem;
     padding-bottom: 0.45rem;
     border-bottom: 0;
   }
 
   .site-nav.is-open {
     display: block;
+    border-top: 1px solid var(--navy);
   }
 
   .site-nav ul {
@@ -1187,7 +1188,7 @@ hr {
     display: block;
     color: var(--navy) !important;
     text-decoration: none;
-    padding: 0.2rem 0;
+    padding: 0.15rem 0;
     white-space: nowrap;
     font-size: 0.7rem;
     font-weight: 500;
