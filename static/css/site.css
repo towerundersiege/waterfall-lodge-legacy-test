@@ -999,13 +999,21 @@ hr {
   max-width: 100%;
 }
 
+#nav_toggle {
+  width: 100%;
+}
+
+#navi {
+  width: 100%;
+}
+
 #nav {
   display: flex !important;
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
   gap: 0.25rem 0.5rem;
-  width: auto;
+  width: 100%;
   max-width: 100%;
   margin-left: 0;
   margin-right: 0;
