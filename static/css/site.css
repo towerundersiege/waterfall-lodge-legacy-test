@@ -1006,6 +1006,7 @@ hr {
 }
 
 #navi {
+  display: block;
   width: auto;
 }
 
@@ -1078,8 +1079,10 @@ hr {
 
   .site-head {
     display: flex !important;
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
   }
 
   .site-header .site-wrap.site-head {
@@ -1089,6 +1092,7 @@ hr {
 
   .site-brand {
     min-width: 0;
+    flex: 1 1 auto;
   }
 
   .site-brand__title {
@@ -1101,27 +1105,36 @@ hr {
   }
 
   .site-nav-wrap {
-    width: 100%;
-    justify-self: stretch;
-    margin-left: 0;
+    width: auto;
+    justify-self: end;
+    margin-left: auto;
+    flex: 0 0 auto;
   }
 
   #nav_toggle {
-    width: 100%;
+    width: auto;
   }
 
   #nav_toggle summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    padding: 0.4rem 0;
+    width: auto;
+    padding: 0.2rem 0;
+  }
+
+  #nav_toggle:not([open]) #navi {
+    display: none;
+  }
+
+  #nav_toggle[open] #navi {
+    display: block;
   }
 
   #nav {
     display: grid;
     gap: 0.35rem;
     justify-content: end;
-    width: 100%;
+    width: auto;
   }
 }
