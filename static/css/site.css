@@ -1160,7 +1160,7 @@ hr {
 
   .site-nav.is-open {
     display: block;
-    border-top: 1px solid var(--navy);
+    border-bottom: 1px solid var(--navy);
   }
 
   .site-nav ul {
