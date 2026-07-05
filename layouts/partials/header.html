@@ -1,26 +1,33 @@
 {{ $current := .RelPermalink }}
 <header id="header" class="site-header">
   <div class="site-wrap site-head">
-    <a class="site-brand" href="/" aria-label="Waterfall Lodge home">
-      <span class="site-brand__crest-tile">
-        <img class="site-brand__crest" src="/images/ugle-logo.jpg" alt="United Grand Lodge of England">
-      </span>
-      <span class="site-brand__text">
-        <span class="site-brand__title">Waterfall Lodge №4139</span>
-      </span>
-    </a>
-    <div class="site-nav-wrap">
-      <details id="nav_toggle">
-        <summary><span class="nav-toggle__label">Menu</span><span class="nav-toggle__icon" aria-hidden="true"></span></summary>
-        <nav id="navi" aria-label="Primary navigation">
-          <ul id="nav" class="menu">
-            <li class="page_item{{ if or (hasPrefix $current "/freemasonry") (hasPrefix $current "/us") }} current_page_item{{ end }}"><a href="/freemasonry">Freemasonry</a></li>
-            <li class="page_item{{ if hasPrefix $current "/charity" }} current_page_item{{ end }}"><a href="/charity">Charity</a></li>
-            <li class="page_item{{ if or (hasPrefix $current "/events") (hasPrefix $current "/social") }} current_page_item{{ end }}"><a href="/events">Events</a></li>
-            <li class="page_item{{ if or (hasPrefix $current "/join") (hasPrefix $current "/joining") }} current_page_item{{ end }}"><a href="/join">Join</a></li>
-          </ul>
-        </nav>
-      </details>
+    <div class="site-header__top">
+      <a class="site-brand" href="/" aria-label="Waterfall Lodge home">
+        <span class="site-brand__crest-tile">
+          <img class="site-brand__crest" src="/images/ugle-logo.jpg" alt="United Grand Lodge of England">
+        </span>
+        <span class="site-brand__text">
+          <span class="site-brand__title">Waterfall Lodge №4139</span>
+        </span>
+      </a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-controls="site-nav"
+        aria-expanded="false"
+      >
+        <span class="nav-toggle__label">Menu</span>
+      </button>
     </div>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <ul id="nav" class="menu">
+        <li class="page_item{{ if .IsHome }} current_page_item{{ end }}"><a href="/"{{ if .IsHome }} aria-current="page"{{ end }}>Home</a></li>
+        <li class="page_item{{ if hasPrefix $current "/about" }} current_page_item{{ end }}"><a href="/about"{{ if hasPrefix $current "/about" }} aria-current="page"{{ end }}>About</a></li>
+        <li class="page_item{{ if or (hasPrefix $current "/freemasonry") (hasPrefix $current "/us") }} current_page_item{{ end }}"><a href="/freemasonry"{{ if or (hasPrefix $current "/freemasonry") (hasPrefix $current "/us") }} aria-current="page"{{ end }}>Freemasonry</a></li>
+        <li class="page_item{{ if hasPrefix $current "/charity" }} current_page_item{{ end }}"><a href="/charity"{{ if hasPrefix $current "/charity" }} aria-current="page"{{ end }}>Charity</a></li>
+        <li class="page_item{{ if or (hasPrefix $current "/events") (hasPrefix $current "/social") }} current_page_item{{ end }}"><a href="/events"{{ if or (hasPrefix $current "/events") (hasPrefix $current "/social") }} aria-current="page"{{ end }}>Events</a></li>
+        <li class="page_item{{ if or (hasPrefix $current "/join") (hasPrefix $current "/joining") }} current_page_item{{ end }}"><a href="/join"{{ if or (hasPrefix $current "/join") (hasPrefix $current "/joining") }} aria-current="page"{{ end }}>Join</a></li>
+      </ul>
+    </nav>
   </div>
 </header>

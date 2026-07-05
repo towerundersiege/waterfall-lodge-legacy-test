@@ -31,5 +31,25 @@
         </div>
       </main>
     </div>
+    <script>
+      (() => {
+        const button = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('.site-nav');
+        const label = button?.querySelector('.nav-toggle__label');
+        if (!button || !nav || !label) return;
+
+        const setState = (open) => {
+          nav.classList.toggle('is-open', open);
+          button.setAttribute('aria-expanded', String(open));
+          label.textContent = open ? 'Close' : 'Menu';
+        };
+
+        button.addEventListener('click', () => {
+          setState(!nav.classList.contains('is-open'));
+        });
+
+        setState(false);
+      })();
+    </script>
   </body>
 </html>
