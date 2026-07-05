@@ -1113,6 +1113,11 @@ hr {
     border-bottom: 0;
   }
 
+  .site-header .site-wrap.site-head {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
   .site-header__top {
     padding-bottom: 0.35rem;
     border-bottom: 1px solid var(--navy);
