@@ -1104,6 +1104,35 @@ hr {
   width: 100%;
 }
 
+.events-page #content h1 {
+  color: var(--navy);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 0.45rem;
+}
+
+.events-page #content hr {
+  border: 0;
+  border-top: 1px solid var(--navy);
+  margin: 0.9rem 0;
+}
+
+.events-page #content h2 {
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 1rem 0 0.4rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--navy);
+}
+
+.events-page #content p {
+  margin: 0 0 0.65rem;
+  line-height: 1.55;
+}
+
 @media (max-width: 760px) {
   .site-head {
     flex-direction: column;

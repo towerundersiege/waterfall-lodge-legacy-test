@@ -1,21 +1,44 @@
 +++
 title = "Events"
 draft = false
+pageClass = "events-page"
 +++
 
-<div id="page-events" class="post-27 page type-page status-publish hentry">
+# Events
 
-<div class="entry">
-<div class="wp-block-image">
-<figure class="aligncenter"><a href="/wp-content/uploads/2013/06/Waterfall-Lodge-Logo-Web6.jpg"><img decoding="async" width="100" height="122" src="/wp-content/uploads/2013/06/Waterfall-Lodge-Logo-Web6.jpg" alt="Waterfall-Lodge-Logo-Web" class="wp-image-247"></a></figure>
-</div>
+---
 
-<p class="has-text-align-center"><strong>Waterfall Lodge Events</strong></p>
-<p class="has-text-align-center">Regular meetings, Lodge of Instruction dates and social events are listed below.</p>
+All meetings are held at:
 
-{{< events_table >}}
+Chertsey Masonic Hall  
+71 Guildford Street  
+Chertsey  
+Surrey
 
-<div class="clear"></div>
-</div>
+## 2026 Lodge Meetings
 
-</div>
+Wednesday 11 March &mdash; 18:00
+
+Wednesday 13 May &mdash; 18:00
+
+Wednesday 14 October &mdash; 18:00
+
+Tuesday 8 December &mdash; 18:00
+
+## 2026 Lodge of Instruction
+
+Wednesday 14 January &mdash; 19:00
+
+Wednesday 11 February &mdash; 19:00
+
+Wednesday 8 April &mdash; 19:00
+
+Wednesday 10 June &mdash; 19:00
+
+Wednesday 9 September &mdash; 19:00
+
+Wednesday 11 November &mdash; 19:00
+
+Dining follows regular lodge meetings.
+
+Visiting brethren are warmly welcomed and are encouraged to contact the secretary in advance.

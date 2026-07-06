@@ -22,7 +22,7 @@
       }
     </style>
   </head>
-  <body class="{{ if .IsHome }}home blog{{ else }}page page-template-default{{ end }} custom-background wp-theme-zeenews">
+  <body class="{{ if .IsHome }}home blog{{ else }}page page-template-default{{ end }} custom-background wp-theme-zeenews{{ with .Params.pageClass }} {{ . }}{{ end }}">
     <div id="wrapper">
       {{ partial "header.html" . }}
       <main class="site-wrap site-main">
