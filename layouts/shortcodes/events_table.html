@@ -2,14 +2,21 @@
 {{ $today := now.Format "2006-01-02" }}
 {{ $todayMonth := now.Format "2006-01" }}
 {{ $cutoff := (now.AddDate 0 0 -7).Format "2006-01-02" }}
+{{ $currentMonthStart := now.AddDate 0 0 (sub 1 now.Day) }}
+{{ $nextMonthStart := $currentMonthStart.AddDate 0 1 0 }}
+{{ $daysInMonth := div (sub ($nextMonthStart.Unix) ($currentMonthStart.Unix)) 86400 }}
+{{ $startWeekday := dateFormat "Mon" $currentMonthStart }}
+{{ $startOffset := 0 }}
+{{ if eq $startWeekday "Tue" }}{{ $startOffset = 1 }}{{ end }}
+{{ if eq $startWeekday "Wed" }}{{ $startOffset = 2 }}{{ end }}
+{{ if eq $startWeekday "Thu" }}{{ $startOffset = 3 }}{{ end }}
+{{ if eq $startWeekday "Fri" }}{{ $startOffset = 4 }}{{ end }}
+{{ if eq $startWeekday "Sat" }}{{ $startOffset = 5 }}{{ end }}
+{{ if eq $startWeekday "Sun" }}{{ $startOffset = 6 }}{{ end }}
 
 {{ if gt (len $events) 0 }}
   <section class="events-browser" data-today="{{ $today }}" data-today-month="{{ $todayMonth }}" data-cutoff="{{ $cutoff }}">
     <div class="events-browser__calendar-panel">
-      <div class="events-browser__calendar-header">
-        <h2 class="events-browser__heading">Calendar</h2>
-      </div>
-
       <div class="events-browser__calendar-shell" aria-live="polite">
         <div class="events-browser__month-bar">
           <button class="events-browser__month-button" type="button" data-month-nav="prev" aria-label="Previous month">
@@ -31,7 +38,32 @@
           <span>Sun</span>
         </div>
 
-        <div class="events-browser__calendar-grid" data-calendar-grid></div>
+        <div class="events-browser__calendar-grid" data-calendar-grid>
+          {{ range seq $startOffset }}
+            <span class="events-browser__calendar-filler" aria-hidden="true"></span>
+          {{ end }}
+          {{ range seq $daysInMonth }}
+            {{ $dayNumber := . }}
+            {{ $dayDate := $currentMonthStart.AddDate 0 0 (sub $dayNumber 1) }}
+            {{ $dateKey := dateFormat "2006-01-02" $dayDate }}
+            {{ $eventCount := 0 }}
+            {{ range $events }}
+              {{ if eq (substr .datetime 0 10) $dateKey }}
+                {{ $eventCount = add $eventCount 1 }}
+              {{ end }}
+            {{ end }}
+            <button
+              class="events-browser__calendar-day{{ if gt $eventCount 0 }} has-events{{ end }}{{ if eq $dateKey $today }} is-today{{ end }}"
+              type="button"
+              data-date="{{ $dateKey }}"
+            >
+              <span class="events-browser__calendar-day-number">{{ $dayNumber }}</span>
+              {{ if gt $eventCount 0 }}
+                <span class="events-browser__calendar-marker" aria-hidden="true">{{ if gt $eventCount 1 }}{{ $eventCount }}{{ end }}</span>
+              {{ end }}
+            </button>
+          {{ end }}
+        </div>
       </div>
     </div>
 
@@ -56,6 +88,7 @@
             data-event-date="{{ $eventDate }}"
             data-event-month="{{ $eventMonth }}"
             data-event-type="{{ .type }}"
+            {{ if not $isDefaultVisible }}hidden{{ end }}
           >
             <summary class="event-row__summary">
               <span class="event-row__date" aria-label="{{ dateFormat "Monday 2 January 2006" $eventDateTime }}">
@@ -99,7 +132,6 @@
       </div>
     </div>
 
-    <script type="application/json" class="events-browser__data">{{ $events | jsonify }}</script>
     <script>
       (() => {
         const roots = document.querySelectorAll('.events-browser');
@@ -109,7 +141,7 @@
           if (root.dataset.initialized === 'true') return;
           root.dataset.initialized = 'true';
 
-          const eventData = JSON.parse(root.querySelector('.events-browser__data').textContent);
+          const eventData = {{ $events | jsonify | safeJS }};
           const calendarGrid = root.querySelector('[data-calendar-grid]');
           const monthLabel = root.querySelector('[data-month-label]');
           const historyToggle = root.querySelector('[data-history-toggle]');
@@ -247,7 +279,7 @@
                 button.title = events.map((event) => {
                   const eventDate = toLocalDate(event.datetime);
                   return dateLabelFormatter.format(eventDate) + ' | ' + event.name + ' | ' + tooltipTimeFormatter.format(eventDate);
-                }).join('\n');
+                }).join(' • ');
               }
 
               if (dateKey === today) button.classList.add('is-today');
