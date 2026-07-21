@@ -1,4 +1,4 @@
-{{ $events := sort hugo.Data.lodge.events "datetime" }}
+{{ $events := sort site.Data.lodge.events "datetime" }}
 {{ $today := now.Format "2006-01-02" }}
 {{ $todayMonth := now.Format "2006-01" }}
 {{ $cutoff := (now.AddDate 0 0 -7).Format "2006-01-02" }}
