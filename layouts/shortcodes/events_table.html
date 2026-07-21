@@ -8,7 +8,6 @@
     <div class="events-browser__calendar-panel">
       <div class="events-browser__calendar-header">
         <h2 class="events-browser__heading">Calendar</h2>
-        <p class="events-browser__intro">Browse a month at a time, then expand any event below for location and extra details.</p>
       </div>
 
       <div class="events-browser__calendar-shell" aria-live="polite">
@@ -38,10 +37,6 @@
 
     <div class="events-browser__list-panel">
       <div class="events-browser__list-header">
-        <div>
-          <h2 class="events-browser__heading">Events</h2>
-          <p class="events-browser__status" data-events-status>Showing upcoming events and the last 7 days.</p>
-        </div>
         <div class="events-browser__list-actions">
           <button class="events-browser__action" type="button" data-history-toggle hidden>Show earlier events</button>
           <button class="events-browser__action events-browser__action--secondary" type="button" data-clear-focus hidden>Clear focus</button>
@@ -70,7 +65,6 @@
               </span>
 
               <span class="event-row__title-wrap">
-                <span class="event-row__type">{{ .type }}</span>
                 <span class="event-row__title">{{ .name }}</span>
               </span>
 
@@ -108,219 +102,205 @@
     <script type="application/json" class="events-browser__data">{{ $events | jsonify }}</script>
     <script>
       (() => {
-        const root = document.currentScript.closest('.events-browser');
-        if (!root || root.dataset.initialized === 'true') return;
-        root.dataset.initialized = 'true';
+        const roots = document.querySelectorAll('.events-browser');
+        if (!roots.length) return;
 
-        const eventData = JSON.parse(root.querySelector('.events-browser__data').textContent);
-        const calendarGrid = root.querySelector('[data-calendar-grid]');
-        const monthLabel = root.querySelector('[data-month-label]');
-        const status = root.querySelector('[data-events-status]');
-        const historyToggle = root.querySelector('[data-history-toggle]');
-        const clearFocus = root.querySelector('[data-clear-focus]');
-        const eventRows = Array.from(root.querySelectorAll('.event-row'));
+        roots.forEach((root) => {
+          if (root.dataset.initialized === 'true') return;
+          root.dataset.initialized = 'true';
 
-        const today = root.dataset.today;
-        const todayMonth = root.dataset.todayMonth;
-        const cutoff = root.dataset.cutoff;
-        let visibleMonth = todayMonth;
-        let selectedDate = '';
-        let historyExpanded = false;
+          const eventData = JSON.parse(root.querySelector('.events-browser__data').textContent);
+          const calendarGrid = root.querySelector('[data-calendar-grid]');
+          const monthLabel = root.querySelector('[data-month-label]');
+          const historyToggle = root.querySelector('[data-history-toggle]');
+          const clearFocus = root.querySelector('[data-clear-focus]');
+          const eventRows = Array.from(root.querySelectorAll('.event-row'));
 
-        const dateLabelFormatter = new Intl.DateTimeFormat('en-GB', {
-          weekday: 'long',
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
-        });
-        const monthLabelFormatter = new Intl.DateTimeFormat('en-GB', {
-          month: 'long',
-          year: 'numeric'
-        });
-        const tooltipTimeFormatter = new Intl.DateTimeFormat('en-GB', {
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: false
-        });
+          const today = root.dataset.today;
+          const todayMonth = root.dataset.todayMonth;
+          const cutoff = root.dataset.cutoff;
+          let visibleMonth = todayMonth;
+          let selectedDate = '';
+          let historyExpanded = false;
 
-        const toLocalDate = (isoDateTime) => {
-          const [datePart, timePart = '00:00'] = isoDateTime.split(' ');
-          const [year, month, day] = datePart.split('-').map(Number);
-          const [hours, minutes] = timePart.split(':').map(Number);
-          return new Date(year, month - 1, day, hours, minutes);
-        };
-
-        const formatMonthKey = (date) => {
-          const year = date.getFullYear();
-          const month = String(date.getMonth() + 1).padStart(2, '0');
-          return year + '-' + month;
-        };
-
-        const addMonths = (monthKey, delta) => {
-          const [year, month] = monthKey.split('-').map(Number);
-          const next = new Date(year, month - 1 + delta, 1);
-          return formatMonthKey(next);
-        };
-
-        const eventsByDate = new Map();
-        eventData.forEach((event) => {
-          const dateKey = event.datetime.slice(0, 10);
-          const bucket = eventsByDate.get(dateKey) || [];
-          bucket.push(event);
-          eventsByDate.set(dateKey, bucket);
-        });
-
-        const setStatus = (message) => {
-          status.textContent = message;
-        };
-
-        const openFocusedRows = () => {
-          if (!selectedDate) return;
-          eventRows.forEach((row) => {
-            row.open = row.dataset.eventDate === selectedDate;
+          const dateLabelFormatter = new Intl.DateTimeFormat('en-GB', {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
           });
-        };
-
-        const applyListState = () => {
-          let visibleCount = 0;
-          let focusedCount = 0;
-          const showingHistoricMonth = visibleMonth < todayMonth;
-
-          eventRows.forEach((row) => {
-            const eventDate = row.dataset.eventDate;
-            const eventMonth = row.dataset.eventMonth;
-            const isDefaultVisible = eventDate >= today || eventDate >= cutoff;
-            const shouldRevealFromMonth = showingHistoricMonth && eventMonth === visibleMonth;
-            const shouldRevealFromSelection = !!selectedDate && eventDate === selectedDate;
-            const shouldShow = isDefaultVisible || historyExpanded || shouldRevealFromMonth || shouldRevealFromSelection;
-            const matchesSelection = !selectedDate || eventDate === selectedDate;
-
-            row.hidden = !shouldShow;
-            row.classList.toggle('is-visible', shouldShow);
-            row.classList.toggle('is-selected', selectedDate && eventDate === selectedDate);
-            row.classList.toggle('is-dimmed', !!selectedDate && shouldShow && !matchesSelection);
-
-            if (shouldShow) visibleCount += 1;
-            if (selectedDate && eventDate === selectedDate && shouldShow) focusedCount += 1;
-
-            if (!selectedDate && row.classList.contains('is-selected')) {
-              row.open = false;
-            }
+          const monthLabelFormatter = new Intl.DateTimeFormat('en-GB', {
+            month: 'long',
+            year: 'numeric'
+          });
+          const tooltipTimeFormatter = new Intl.DateTimeFormat('en-GB', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
           });
 
-          if (selectedDate) {
-            openFocusedRows();
-            if (focusedCount > 0) {
-              const date = toLocalDate(selectedDate + ' 00:00');
-              setStatus('Focused on ' + dateLabelFormatter.format(date) + '. ' + focusedCount + ' event' + (focusedCount === 1 ? '' : 's') + ' highlighted.');
-            } else {
-              setStatus('No events found for the selected day.');
-            }
-          } else if (showingHistoricMonth) {
-            const monthDate = toLocalDate(visibleMonth + '-01 00:00');
-            setStatus('Showing events from ' + monthLabelFormatter.format(monthDate) + '.');
-          } else if (historyExpanded) {
-            setStatus('Showing all events, including earlier dates.');
-          } else {
-            setStatus('Showing upcoming events and the last 7 days.');
-          }
+          const toLocalDate = (isoDateTime) => {
+            const [datePart, timePart = '00:00'] = isoDateTime.split(' ');
+            const [year, month, day] = datePart.split('-').map(Number);
+            const [hours, minutes] = timePart.split(':').map(Number);
+            return new Date(year, month - 1, day, hours, minutes);
+          };
 
-          const hasHistoricalRows = eventRows.some((row) => row.classList.contains('is-historical'));
-          historyToggle.hidden = !hasHistoricalRows;
-          historyToggle.textContent = historyExpanded ? 'Hide earlier events' : 'Show earlier events';
-          clearFocus.hidden = !selectedDate;
-        };
+          const formatMonthKey = (date) => {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            return year + '-' + month;
+          };
 
-        const renderCalendar = () => {
-          const [year, month] = visibleMonth.split('-').map(Number);
-          const firstOfMonth = new Date(year, month - 1, 1);
-          const daysInMonth = new Date(year, month, 0).getDate();
-          const startOffset = (firstOfMonth.getDay() + 6) % 7;
-          monthLabel.textContent = monthLabelFormatter.format(firstOfMonth);
-          calendarGrid.innerHTML = '';
+          const addMonths = (monthKey, delta) => {
+            const [year, month] = monthKey.split('-').map(Number);
+            const next = new Date(year, month - 1 + delta, 1);
+            return formatMonthKey(next);
+          };
 
-          for (let index = 0; index < startOffset; index += 1) {
-            const filler = document.createElement('span');
-            filler.className = 'events-browser__calendar-filler';
-            filler.setAttribute('aria-hidden', 'true');
-            calendarGrid.appendChild(filler);
-          }
+          const eventsByDate = new Map();
+          eventData.forEach((event) => {
+            const dateKey = event.datetime.slice(0, 10);
+            const bucket = eventsByDate.get(dateKey) || [];
+            bucket.push(event);
+            eventsByDate.set(dateKey, bucket);
+          });
 
-          for (let day = 1; day <= daysInMonth; day += 1) {
-            const date = new Date(year, month - 1, day);
-            const dateKey = [
-              date.getFullYear(),
-              String(date.getMonth() + 1).padStart(2, '0'),
-              String(date.getDate()).padStart(2, '0')
-            ].join('-');
-            const events = eventsByDate.get(dateKey) || [];
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.className = 'events-browser__calendar-day';
-            button.dataset.date = dateKey;
-            button.innerHTML = '<span class="events-browser__calendar-day-number">' + day + '</span>';
+          const openFocusedRows = () => {
+            if (!selectedDate) return;
+            eventRows.forEach((row) => {
+              row.open = row.dataset.eventDate === selectedDate;
+            });
+          };
 
-            if (events.length > 0) {
-              button.classList.add('has-events');
-              const marker = document.createElement('span');
-              marker.className = 'events-browser__calendar-marker';
-              marker.setAttribute('aria-hidden', 'true');
-              marker.textContent = events.length > 1 ? String(events.length) : '';
-              button.appendChild(marker);
-              button.title = events.map((event) => {
-                const eventDate = toLocalDate(event.datetime);
-                return dateLabelFormatter.format(eventDate) + ' | ' + event.name + ' | ' + tooltipTimeFormatter.format(eventDate);
-              }).join('\n');
-            }
+          const applyListState = () => {
+            let focusedCount = 0;
+            const showingHistoricMonth = visibleMonth < todayMonth;
 
-            if (dateKey === today) button.classList.add('is-today');
-            if (dateKey < today) button.classList.add('is-past');
-            if (dateKey === selectedDate) button.classList.add('is-selected');
+            eventRows.forEach((row) => {
+              const eventDate = row.dataset.eventDate;
+              const eventMonth = row.dataset.eventMonth;
+              const isDefaultVisible = eventDate >= today || eventDate >= cutoff;
+              const shouldRevealFromMonth = showingHistoricMonth && eventMonth === visibleMonth;
+              const shouldRevealFromSelection = !!selectedDate && eventDate === selectedDate;
+              const shouldShow = isDefaultVisible || historyExpanded || shouldRevealFromMonth || shouldRevealFromSelection;
+              const matchesSelection = !selectedDate || eventDate === selectedDate;
 
-            button.addEventListener('click', () => {
-              if (selectedDate === dateKey) {
-                selectedDate = '';
-              } else {
-                selectedDate = dateKey;
-              }
+              row.hidden = !shouldShow;
+              row.classList.toggle('is-visible', shouldShow);
+              row.classList.toggle('is-selected', selectedDate && eventDate === selectedDate);
+              row.classList.toggle('is-dimmed', !!selectedDate && shouldShow && !matchesSelection);
 
-              renderCalendar();
-              applyListState();
+              if (selectedDate && eventDate === selectedDate && shouldShow) focusedCount += 1;
 
-              if (selectedDate) {
-                const firstMatch = eventRows.find((row) => !row.hidden && row.dataset.eventDate === selectedDate);
-                firstMatch?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              if (!selectedDate && row.classList.contains('is-selected')) {
+                row.open = false;
               }
             });
 
-            calendarGrid.appendChild(button);
-          }
-        };
+            if (selectedDate && focusedCount > 0) {
+              openFocusedRows();
+            }
 
-        root.querySelectorAll('[data-month-nav]').forEach((button) => {
-          button.addEventListener('click', () => {
-            visibleMonth = addMonths(visibleMonth, button.dataset.monthNav === 'next' ? 1 : -1);
+            const hasHistoricalRows = eventRows.some((row) => row.classList.contains('is-historical'));
+            historyToggle.hidden = !hasHistoricalRows;
+            historyToggle.textContent = historyExpanded ? 'Hide Earlier Events' : 'Show Earlier Events';
+            clearFocus.hidden = !selectedDate;
+          };
+
+          const renderCalendar = () => {
+            const [year, month] = visibleMonth.split('-').map(Number);
+            const firstOfMonth = new Date(year, month - 1, 1);
+            const daysInMonth = new Date(year, month, 0).getDate();
+            const startOffset = (firstOfMonth.getDay() + 6) % 7;
+            monthLabel.textContent = monthLabelFormatter.format(firstOfMonth);
+            calendarGrid.innerHTML = '';
+
+            for (let index = 0; index < startOffset; index += 1) {
+              const filler = document.createElement('span');
+              filler.className = 'events-browser__calendar-filler';
+              filler.setAttribute('aria-hidden', 'true');
+              calendarGrid.appendChild(filler);
+            }
+
+            for (let day = 1; day <= daysInMonth; day += 1) {
+              const date = new Date(year, month - 1, day);
+              const dateKey = [
+                date.getFullYear(),
+                String(date.getMonth() + 1).padStart(2, '0'),
+                String(date.getDate()).padStart(2, '0')
+              ].join('-');
+              const events = eventsByDate.get(dateKey) || [];
+              const button = document.createElement('button');
+              button.type = 'button';
+              button.className = 'events-browser__calendar-day';
+              button.dataset.date = dateKey;
+              button.innerHTML = '<span class="events-browser__calendar-day-number">' + day + '</span>';
+
+              if (events.length > 0) {
+                button.classList.add('has-events');
+                const marker = document.createElement('span');
+                marker.className = 'events-browser__calendar-marker';
+                marker.setAttribute('aria-hidden', 'true');
+                marker.textContent = events.length > 1 ? String(events.length) : '';
+                button.appendChild(marker);
+                button.title = events.map((event) => {
+                  const eventDate = toLocalDate(event.datetime);
+                  return dateLabelFormatter.format(eventDate) + ' | ' + event.name + ' | ' + tooltipTimeFormatter.format(eventDate);
+                }).join('\n');
+              }
+
+              if (dateKey === today) button.classList.add('is-today');
+              if (dateKey < today) button.classList.add('is-past');
+              if (dateKey === selectedDate) button.classList.add('is-selected');
+
+              button.addEventListener('click', () => {
+                if (selectedDate === dateKey) {
+                  selectedDate = '';
+                } else {
+                  selectedDate = dateKey;
+                }
+
+                renderCalendar();
+                applyListState();
+
+                if (selectedDate) {
+                  const firstMatch = eventRows.find((row) => !row.hidden && row.dataset.eventDate === selectedDate);
+                  if (firstMatch) {
+                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                  }
+                }
+              });
+
+              calendarGrid.appendChild(button);
+            }
+          };
+
+          root.querySelectorAll('[data-month-nav]').forEach((button) => {
+            button.addEventListener('click', () => {
+              visibleMonth = addMonths(visibleMonth, button.dataset.monthNav === 'next' ? 1 : -1);
+              selectedDate = '';
+              renderCalendar();
+              applyListState();
+            });
+          });
+
+          historyToggle.addEventListener('click', () => {
+            historyExpanded = !historyExpanded;
             selectedDate = '';
             renderCalendar();
             applyListState();
           });
-        });
 
-        historyToggle.addEventListener('click', () => {
-          historyExpanded = !historyExpanded;
-          selectedDate = '';
+          clearFocus.addEventListener('click', () => {
+            selectedDate = '';
+            renderCalendar();
+            applyListState();
+          });
+
           renderCalendar();
           applyListState();
         });
-
-        clearFocus.addEventListener('click', () => {
-          selectedDate = '';
-          renderCalendar();
-          applyListState();
-        });
-
-        renderCalendar();
-        applyListState();
       })();
     </script>
   </section>

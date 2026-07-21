@@ -1139,20 +1139,13 @@ hr {
   gap: 1.5rem;
 }
 
-.events-browser__calendar-panel,
-.events-browser__list-panel {
-  border: 1px solid #d4d8de;
-  background: #fff;
-  padding: 1rem;
-}
-
 .events-browser__calendar-header,
 .events-browser__list-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 0.9rem;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.55rem;
 }
 
 .events-browser__heading {
@@ -1162,19 +1155,12 @@ hr {
   font-weight: 600;
 }
 
-.events-browser__intro,
-.events-browser__status {
-  margin: 0.25rem 0 0;
-  color: #4b5563;
-  font-size: 0.95rem;
-}
-
 .events-browser__month-bar {
   display: grid;
   grid-template-columns: 2.5rem 1fr 2.5rem;
   align-items: center;
   gap: 0.65rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.9rem;
 }
 
 .events-browser__month-label {
@@ -1187,11 +1173,11 @@ hr {
 
 .events-browser__month-button,
 .events-browser__action {
-  border: 1px solid #c2cad4;
-  background: #fff;
+  border: 0;
+  background: transparent;
   color: var(--navy);
   cursor: pointer;
-  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  transition: color 0.18s ease, opacity 0.18s ease;
 }
 
 .events-browser__month-button {
@@ -1208,8 +1194,7 @@ hr {
 .events-browser__month-button:focus,
 .events-browser__action:hover,
 .events-browser__action:focus {
-  border-color: var(--navy);
-  background: #f4f7fa;
+  color: #0f1f39;
   outline: none;
 }
 
@@ -1234,22 +1219,22 @@ hr {
 
 .events-browser__calendar-filler,
 .events-browser__calendar-day {
-  min-height: 4rem;
+  min-height: 3.25rem;
 }
 
 .events-browser__calendar-day {
   position: relative;
-  border: 1px solid #d7dce3;
-  background: #fff;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: #1f2937;
   cursor: pointer;
-  padding: 0.45rem;
-  text-align: left;
+  padding: 0.35rem;
+  text-align: center;
 }
 
 .events-browser__calendar-day:hover,
 .events-browser__calendar-day:focus {
-  border-color: var(--navy);
   background: #f7fafc;
   outline: none;
 }
@@ -1261,7 +1246,8 @@ hr {
 }
 
 .events-browser__calendar-day.has-events {
-  border-color: #c6d2df;
+  color: var(--navy);
+  font-weight: 600;
 }
 
 .events-browser__calendar-day.is-past {
@@ -1269,19 +1255,17 @@ hr {
 }
 
 .events-browser__calendar-day.is-today {
-  border-color: var(--gold);
-  box-shadow: inset 0 0 0 1px var(--gold);
+  box-shadow: inset 0 -2px 0 var(--gold);
 }
 
 .events-browser__calendar-day.is-selected {
-  border-color: var(--navy);
   background: #eef4f8;
 }
 
 .events-browser__calendar-marker {
   position: absolute;
-  right: 0.45rem;
-  bottom: 0.45rem;
+  left: 50%;
+  bottom: 0.18rem;
   min-width: 0.55rem;
   min-height: 0.55rem;
   border-radius: 999px;
@@ -1293,6 +1277,7 @@ hr {
   padding: 0 0.28rem;
   font-size: 0.7rem;
   line-height: 1;
+  transform: translateX(-50%);
 }
 
 .events-browser__list-actions {
@@ -1303,8 +1288,10 @@ hr {
 }
 
 .events-browser__action {
-  padding: 0.5rem 0.75rem;
+  padding: 0.1rem 0;
   font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 0.18rem;
 }
 
 .events-browser__action--secondary {
@@ -1317,13 +1304,37 @@ hr {
 }
 
 .event-row {
-  border: 1px solid #d7dce3;
-  background: #fff;
-  transition: opacity 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+  position: relative;
+  border-top: 1px solid #dde3ea;
+  background: transparent;
+  transition: opacity 0.18s ease, background-color 0.18s ease;
+  --event-accent: var(--navy);
+}
+
+.event-row::before {
+  content: "";
+  position: absolute;
+  top: 0.9rem;
+  bottom: 0.9rem;
+  left: 0;
+  width: 3px;
+  background: var(--event-accent);
 }
 
 .event-row[hidden] {
   display: none;
+}
+
+.event-row--type-loi {
+  --event-accent: #7a4a08;
+}
+
+.event-row--type-social {
+  --event-accent: #2f7a4f;
+}
+
+.event-row--type-committee {
+  --event-accent: #475569;
 }
 
 .event-row.is-recent-past {
@@ -1336,8 +1347,7 @@ hr {
 }
 
 .event-row.is-selected {
-  border-color: var(--navy);
-  box-shadow: inset 3px 0 0 var(--navy);
+  background: #f8fafc;
 }
 
 .event-row summary {
@@ -1350,10 +1360,10 @@ hr {
 
 .event-row__summary {
   display: grid;
-  grid-template-columns: minmax(112px, 132px) minmax(0, 1fr) auto;
+  grid-template-columns: 88px minmax(0, 1fr) auto;
   align-items: center;
   gap: 0.9rem;
-  padding: 0.85rem 1rem;
+  padding: 0.95rem 0 0.95rem 1rem;
   cursor: pointer;
 }
 
@@ -1361,6 +1371,8 @@ hr {
   display: grid;
   gap: 0.1rem;
   color: #334155;
+  justify-items: center;
+  text-align: center;
 }
 
 .event-row__weekday,
@@ -1378,39 +1390,6 @@ hr {
 
 .event-row__title-wrap {
   min-width: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-}
-
-.event-row__type {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 4.6rem;
-  padding: 0.24rem 0.55rem;
-  border-radius: 999px;
-  background: #eaf0f6;
-  color: var(--navy);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.event-row--type-loi .event-row__type {
-  background: #f7efe4;
-  color: #7a4a08;
-}
-
-.event-row--type-social .event-row__type {
-  background: #e9f3ed;
-  color: #2f7a4f;
-}
-
-.event-row--type-committee .event-row__type {
-  background: #eef0f3;
-  color: #475569;
 }
 
 .event-row__title {
@@ -1429,7 +1408,8 @@ hr {
 
 .event-row__details {
   border-top: 1px solid #e5e7eb;
-  padding: 0.95rem 1rem 1rem;
+  margin-left: 1rem;
+  padding: 0.95rem 0 1rem;
 }
 
 .event-row__meta {
@@ -1475,18 +1455,19 @@ hr {
 
   .events-browser__calendar-filler,
   .events-browser__calendar-day {
-    min-height: 3.35rem;
+    min-height: 2.9rem;
   }
 
   .event-row__summary {
     grid-template-columns: 1fr;
     gap: 0.6rem;
+    padding-left: 1rem;
   }
 
   .event-row__date {
-    grid-template-columns: auto auto 1fr;
-    align-items: baseline;
-    gap: 0.4rem;
+    grid-template-columns: 1fr;
+    justify-items: start;
+    text-align: left;
   }
 
   .event-row__day {
@@ -1494,12 +1475,15 @@ hr {
   }
 
   .event-row__title-wrap {
-    display: grid;
-    gap: 0.35rem;
+    display: block;
   }
 
   .event-row__time {
     justify-self: start;
+  }
+
+  .event-row__details {
+    margin-left: 1rem;
   }
 
   .event-row__meta {
