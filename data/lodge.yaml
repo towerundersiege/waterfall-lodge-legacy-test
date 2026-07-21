@@ -161,11 +161,71 @@ current_members:
       - Steward
 
 events:
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2025-02-07 19:30"
+    location: Constitutional Club, Egham
+    description: Legacy 2025 instruction evening.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2025-02-19 19:30"
+    location: Chertsey Masonic Temple, Chertsey, Surrey
+    description: The Provincial DC will be in attendance to run through the procession into the temple regarding the visit of the APGM.
+  - type: loi
+    name: Officer's Night
+    datetime: "2025-03-07 19:30"
+    location: Chertsey Masonic Temple, Chertsey, Surrey
+    description: Officers Night at the Chertsey Masonic Temple.
+  - type: meeting
+    name: "Lodge Meeting: Installation"
+    datetime: "2025-03-12 18:00"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Installation lodge meeting.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2025-04-18 19:30"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Good Friday instruction evening.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2025-04-30 19:30"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Legacy 2025 instruction evening.
+  - type: meeting
+    name: "Lodge Meeting: 3rd Degree"
+    datetime: "2025-05-14 18:00"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: 3rd Degree lodge meeting.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2026-01-14 19:00"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: First 2026 instruction evening.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2026-02-11 19:00"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: First 2026 instruction evening.
+  - type: meeting
+    name: "Lodge Meeting: Installation"
+    datetime: "2026-03-11 18:00"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: Installation lodge meeting.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2026-04-08 19:00"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: First 2026 instruction evening.
   - type: meeting
     name: Lodge Meeting
     datetime: "2026-05-13 16:30"
     location: Chertsey Masonic Hall, Chertsey, Surrey
     description: Masonic duties of the Lodge.
+  - type: loi
+    name: Lodge of Instruction
+    datetime: "2026-06-10 19:00"
+    location: Chertsey Masonic Hall, Chertsey, Surrey
+    description: First 2026 instruction evening.
   - type: meeting
     name: Autumn Committee Meeting
     datetime: "2026-08-28 19:00"
